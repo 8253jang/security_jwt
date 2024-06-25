@@ -18,7 +18,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
   public void addCorsMappings(CorsRegistry registry) {
      registry.addMapping("/**")
      //.allowedOrigins("http://54.180.80.113:3000")
-             .allowedOrigins("http://54.180.80.113:9000")
+             .allowedOrigins("http://localhost:3000")
      .allowedMethods("OPTIONS","GET","POST","PUT","DELETE");
   }
 }
