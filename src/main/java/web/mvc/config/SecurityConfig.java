@@ -32,7 +32,8 @@ import web.mvc.jwt.JWTUtil;
 import web.mvc.jwt.LoginFilter;
 
 import java.util.Collections;
-
+import java.util.List;
+import java.util.Arrays;
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
@@ -66,10 +67,21 @@ public class SecurityConfig {
                             @Override
                             public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
                                 CorsConfiguration configuration = new CorsConfiguration();
-                               // configuration.setAllowedOrigins(Collections.singletonList("http://3.36.91.175:3000"));
-                                 configuration.setAllowedOrigins(Collections.singletonList("http://grace24.o-r.kr:3000"));
+                                 // configuration.setAllowedOrigins(Collections.singletonList("http://3.36.91.175:3000"));
+                               //  configuration.setAllowedOrigins(Collections.singletonList("http://grace24.o-r.kr:3000"));
                                // configuration.setAllowedOrigins(Collections.singletonList("http://grace24.shop:3000"));
                                 //configuration.setAllowedOrigins(Collections.singletonList("http://localhost:3000"));
+
+                                
+                                 List<String> allowedOrigins = Arrays.asList(
+                                "http://3.36.91.175:3000",
+                                "http://grace24.o-r.kr:3000",
+                                "http://grace24.shop:3000",
+                                "http://localhost:3000"
+                            );
+                    configuration.setAllowedOrigins(allowedOrigins);
+                                
+                                
                                 configuration.setAllowedMethods(Collections.singletonList("*"));
                                 configuration.setAllowCredentials(true);
 
